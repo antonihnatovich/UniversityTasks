@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.yoant.universitytasks.view.activities.CryptActivity">
+
+    <TextView
+        android:id="@+id/activity_textview_given_word"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Given Word: "
+        android:textSize="16sp"
+        android:layout_margin="16dp"/>
+
+    <TextView
+        android:id="@+id/activity_textview_given_word_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Crypt"
+        android:layout_marginTop="16dp"
+        android:textSize="16sp"
+        android:textColor="#000000"
+        android:layout_toEndOf="@id/activity_textview_given_word"/>
+
+    <TextView
+        android:id="@+id/activity_textview_given_key"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Given Key: "
+        android:textSize="16sp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="16dp"
+        android:layout_below="@id/activity_textview_given_word" />
+
+    <TextView
+        android:id="@+id/activity_textview_given_key_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="5"
+        android:layout_marginTop="16dp"
+        android:textSize="16sp"
+        android:textColor="#000000"
+        android:layout_toEndOf="@id/activity_textview_given_word"
+        android:layout_below="@id/activity_textview_given_word_value"/>
+
+    <TextView
+        android:id="@+id/activity_textview_crypted_word"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Crypted Word: "
+        android:textSize="16sp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="16dp"
+        android:layout_below="@id/activity_textview_given_key" />
+
+    <TextView
+        android:id="@+id/activity_textview_crypted_word_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hedht"
+        android:layout_marginTop="16dp"
+        android:textSize="16sp"
+        android:textColor="#000000"
+        android:layout_toEndOf="@id/activity_textview_given_word"
+        android:layout_below="@id/activity_textview_given_key_value"/>
+
+    <TextView
+        android:id="@+id/activity_textview_chosen_method"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Method: "
+        android:textSize="16sp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="16dp"
+        android:layout_below="@id/activity_textview_crypted_word" />
+
+    <TextView
+        android:id="@+id/activity_textview_chosen_method_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Affine Caesar Crypt Method"
+        android:layout_marginTop="16dp"
+        android:textSize="16sp"
+        android:textColor="#000000"
+        android:layout_toEndOf="@id/activity_textview_given_word"
+        android:layout_below="@id/activity_textview_crypted_word_value"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_below="@id/activity_textview_chosen_method_value"
+        android:weightSum="6">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/activity_recyclecler_view"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="5">
+        </android.support.v7.widget.RecyclerView>
+
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="#2196F3"
+            android:text="@string/theory"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            />
+
+    </LinearLayout>
+
+</RelativeLayout>

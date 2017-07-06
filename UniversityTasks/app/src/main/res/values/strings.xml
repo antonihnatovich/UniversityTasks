@@ -5,4 +5,18 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="textview_variable">Enter variables</string>
+
+    <string name="word">Enter word</string>
+    <string name="key">Enter key</string>
+    <string name="crypt">Crypt \ Encrypt</string>
+    <string name="separator">__________________or__________________</string>
+    <string name="random_word">Random word</string>
+    <string name="random_key">Random key</string>
+
+    <string name="theory">Show Theory</string>
 </resources>

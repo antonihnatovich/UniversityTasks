@@ -1,4 +1,4 @@
-package com.example.yoant.universitytasks.view;
+package com.example.yoant.universitytasks.view.activities;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
