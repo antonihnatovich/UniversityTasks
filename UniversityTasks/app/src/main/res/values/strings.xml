@@ -13,10 +13,10 @@
 
     <string name="word">Enter word</string>
     <string name="key">Enter key</string>
-    <string name="crypt">Crypt \ Encrypt</string>
-    <string name="separator">__________________or__________________</string>
+    <string name="crypt">Crypt \\ Encrypt</string>
+    <string name="separator">___________________or___________________</string>
     <string name="random_word">Random word</string>
     <string name="random_key">Random key</string>
-
+    <string name="prikol">*===*</string>
     <string name="theory">Show Theory</string>
 </resources>

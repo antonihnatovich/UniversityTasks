@@ -19,7 +19,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.activities.CryptActivity"></activity>
+        <activity android:name=".view.activities.CryptActivity" />
+        <activity android:name=".view.activities.ProgressActivity"></activity>
     </application>
 
 </manifest>

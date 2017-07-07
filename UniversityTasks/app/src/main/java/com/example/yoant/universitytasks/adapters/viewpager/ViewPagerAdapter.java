@@ -4,6 +4,9 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
+import com.example.yoant.universitytasks.helper.Constant;
+import com.example.yoant.universitytasks.view.fragments.CryptedFragment;
+
 public class ViewPagerAdapter extends FragmentPagerAdapter {
 
     private final int pagesCount = 2;
@@ -16,9 +19,9 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int position) {
         switch (position) {
             case 0:
-                return null;
+                return CryptedFragment.newInstance(Constant.algorithmFirstName);
             default:
-                return null;
+                return CryptedFragment.newInstance(Constant.algorithmSecondName);
         }
     }
 
@@ -31,9 +34,9 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
     public CharSequence getPageTitle(int position) {
         switch (position) {
             case 0:
-                return "Caesar";
+                return Constant.algorithmFirstName;
             default:
-                return "Unknown";
+                return Constant.algorithmSecondName;
         }
     }
 }

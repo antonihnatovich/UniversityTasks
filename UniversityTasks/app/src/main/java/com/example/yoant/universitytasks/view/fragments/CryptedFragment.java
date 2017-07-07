@@ -3,6 +3,7 @@ package com.example.yoant.universitytasks.view.fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,9 +15,19 @@ import com.example.yoant.universitytasks.R;
  */
 public class CryptedFragment extends Fragment {
 
+    private static final String KEY = "method";
+
+
 
     public CryptedFragment() {
-        // Required empty public constructor
+    }
+
+    public static final CryptedFragment newInstance(String pCryptMethod) {
+        CryptedFragment fragment = new CryptedFragment();
+        Bundle args = new Bundle();
+        args.putString(KEY, pCryptMethod);
+        fragment.setArguments(args);
+        return fragment;
     }
 
 

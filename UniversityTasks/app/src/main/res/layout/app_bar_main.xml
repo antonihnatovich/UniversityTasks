@@ -1,39 +1,129 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.yoant.universitytasks.view.activities.MainActivity">
 
-    <android.support.design.widget.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
-
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
-
-        <android.support.design.widget.TabLayout
-            android:id="@+id/tabs"
+        <android.support.design.widget.AppBarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:tabMode="scrollable"
-            app:tabGravity="fill"
-            app:tabMinWidth="100dp"/>
+            android:theme="@style/AppTheme.AppBarOverlay">
 
-    </android.support.design.widget.AppBarLayout>
+                <android.support.v7.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    android:background="#2196F3"
+                    app:popupTheme="@style/AppTheme.PopupOverlay" />
 
-    <include layout="@layout/content_main" />
+        </android.support.design.widget.AppBarLayout>
 
-    <android.support.v4.view.ViewPager
-        android:id="@+id/viewPager"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+        <TextView
+            android:id="@+id/fragment_textview_enter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="16dp"
+            android:text="@string/textview_variable"
+            android:paddingTop="70dp"
+            android:textSize="22sp" />
 
-</android.support.design.widget.CoordinatorLayout>
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/activity_textinput_word"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/fragment_textview_enter"
+            android:layout_marginEnd="50dp"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="15dp">
+
+            <EditText
+                android:id="@+id/activity_edittext_word"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/word"
+                android:inputType="text"
+                android:textAllCaps="false"
+                android:textSize="14sp" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/activity_textinput_key"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/activity_textinput_word"
+            android:layout_marginEnd="50dp"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="15dp">
+
+            <EditText
+                android:id="@+id/activity_edittext_key"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/key"
+                android:inputType="number"
+                android:textAllCaps="false"
+                android:textSize="14sp" />
+        </android.support.design.widget.TextInputLayout>
+
+        <TextView
+            android:id="@+id/activity_textview_separator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/activity_textinput_key"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="32dp"
+            android:text="@string/separator" />
+
+        <TextView
+            android:id="@+id/activity_textview_random_word"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/activity_textview_separator"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="32dp"
+            android:text="@string/random_word" />
+
+        <CheckBox
+            android:id="@+id/activity_checkbox_word"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/activity_textview_separator"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="22dp"
+            android:layout_toEndOf="@id/activity_textview_random_word" />
+
+        <TextView
+            android:id="@+id/activity_textview_random_key"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/activity_textview_random_word"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="32dp"
+            android:text="@string/random_key" />
+
+        <CheckBox
+            android:id="@+id/activity_checkbox_key"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/activity_textview_random_word"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="22dp"
+            android:layout_toEndOf="@id/activity_textview_random_key" />
+
+        <Button
+            android:id="@+id/activity_button_crypt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/activity_textview_random_key"
+            android:layout_margin="16dp"
+            android:background="#2196F3"
+            android:text="@string/crypt"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp" />
+
+
+</RelativeLayout>
