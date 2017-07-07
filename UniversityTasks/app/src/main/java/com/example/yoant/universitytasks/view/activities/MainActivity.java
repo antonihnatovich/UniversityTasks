@@ -17,6 +17,8 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 
 import com.example.yoant.universitytasks.R;
+import com.example.yoant.universitytasks.helper.Constant;
+import com.example.yoant.universitytasks.helper.VariablesHolder;
 import com.example.yoant.universitytasks.logic.VariablesGenerator;
 
 public class MainActivity extends AppCompatActivity
@@ -72,8 +74,8 @@ public class MainActivity extends AppCompatActivity
                 }
 
                 //TODO MOVE TO THE NEW VIEW
-//                mIntent.putExtra("word", text);
-//                mIntent.putExtra("key", key);
+                VariablesHolder.word = text;
+                VariablesHolder.key = key;
                 startActivity(mIntent);
                 Log.d("-----Activity : ", "word = " + text + " key = " + key);
             }
