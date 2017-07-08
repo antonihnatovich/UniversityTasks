@@ -44,8 +44,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/word"
-                android:inputType="text"
-                android:textAllCaps="false"
+                android:inputType="textCapCharacters"
                 android:textSize="14sp" />
         </android.support.design.widget.TextInputLayout>
 

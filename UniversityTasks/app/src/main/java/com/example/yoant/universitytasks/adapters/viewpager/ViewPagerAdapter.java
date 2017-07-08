@@ -19,9 +19,9 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int position) {
         switch (position) {
             case 0:
-                return CryptedFragment.newInstance(Constant.algorithmFirstName);
-            default:
                 return CryptedFragment.newInstance(Constant.algorithmSecondName);
+            default:
+                return CryptedFragment.newInstance(Constant.algorithmFirstName);
         }
     }
 
@@ -34,9 +34,9 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
     public CharSequence getPageTitle(int position) {
         switch (position) {
             case 0:
-                return Constant.algorithmFirstName;
-            default:
                 return Constant.algorithmSecondName;
+            default:
+                return Constant.algorithmFirstName;
         }
     }
 }

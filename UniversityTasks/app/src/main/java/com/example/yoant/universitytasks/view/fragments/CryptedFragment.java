@@ -49,11 +49,11 @@ public class CryptedFragment extends Fragment {
         String key = VariablesHolder.key + "";
 
         RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.fragment_recycler_view);
-        TextView textViewFreshWord = (TextView)view.findViewById(R.id.fragment_label_word_value);
+        TextView textViewFreshWord = (TextView) view.findViewById(R.id.fragment_label_word_value);
         TextView textViewKey = (TextView) view.findViewById(R.id.fragment_label_key_value);
         TextView textViewCryptedWord = (TextView) view.findViewById(R.id.fragment_label_crypted_value);
 
-        CryptAdapter adapter = new CryptAdapter(word, Integer.parseInt(key));
+        CryptAdapter adapter = new CryptAdapter(word, Integer.parseInt(key), getArguments().get(Constant.KEY).toString());
 
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this.getActivity()));
@@ -65,8 +65,10 @@ public class CryptedFragment extends Fragment {
         //Setting the label values
         textViewFreshWord.setText(word);
         textViewKey.setText(key);
-        //TODO CHANGE THE METHOD DEPENDS ON THE ALGORITHM NAME VALUE
-        textViewCryptedWord.setText(Cryptographer.cryptCaesarDecrypt(word, Integer.parseInt(key)));
+        if (getArguments().get(Constant.KEY).toString().equals(Constant.algorithmFirstName))
+            textViewCryptedWord.setText(Cryptographer.cryptCaesarDecrypt(word, Integer.parseInt(key)));
+        else
+            textViewCryptedWord.setText(Cryptographer.cryptCaesarCrypt(word, Integer.parseInt(key)));
     }
 
 }

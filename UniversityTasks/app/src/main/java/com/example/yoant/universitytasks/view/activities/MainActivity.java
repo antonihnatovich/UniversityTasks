@@ -40,15 +40,6 @@ public class MainActivity extends AppCompatActivity
         Toolbar mToolBar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(mToolBar);
 
-        //TODO MOVE THIS TO ANOTHER TAB LAYOUT VIEW
-//        mTabLayout = (TabLayout)findViewById(R.id.tabs);
-//        mViewPager = (ViewPager) findViewById(R.id.viewPager);
-//        FragmentPagerAdapter mAdapter = new ViewPagerAdapter(getSupportFragmentManager());
-//        mViewPager.setAdapter(mAdapter);
-//        mTabLayout.addTab(mTabLayout.newTab().setText(Constant.algorithmFirstName));
-//        mTabLayout.addTab(mTabLayout.newTab().setText(Constant.algorithmSecondName));
-//        mTabLayout.setupWithViewPager(mViewPager);
-
         mIntent = new Intent(this, ProgressActivity.class);
         mWordTextInput = (EditText) findViewById(R.id.activity_edittext_word);
         mKeyTextInput = (EditText) findViewById(R.id.activity_edittext_key);
@@ -60,23 +51,28 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View view) {
                 String text;
-                int key;
-                if (!mRandomWordCheckbox.isChecked()) {
+                int key = 0;
+                if (!mRandomWordCheckbox.isChecked() && !mWordTextInput.getText().toString().equals("")) {
                     text = mWordTextInput.getText().toString();
                 } else {
                     text = VariablesGenerator.createRandomWord();
                 }
 
-                if (!mRandomKeyCheckbox.isChecked()) {
+                if (!mRandomKeyCheckbox.isChecked() && !mKeyTextInput.getText().toString().equals("")) {
                     key = Integer.parseInt(mKeyTextInput.getText().toString());
                 } else {
                     key = VariablesGenerator.createRandomKey();
                 }
 
-                //TODO MOVE TO THE NEW VIEW
+                if (text.isEmpty())
+                    text = VariablesGenerator.createRandomWord();
+                if (key == 0)
+                    key = VariablesGenerator.createRandomKey();
+
                 VariablesHolder.word = text;
                 VariablesHolder.key = key;
-                startActivity(mIntent);
+                if (!text.equals(""))
+                    startActivity(mIntent);
                 Log.d("-----Activity : ", "word = " + text + " key = " + key);
             }
         });
@@ -115,7 +111,6 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.action_settings) {
             return true;
         }
-
         return super.onOptionsItemSelected(item);
     }
 
@@ -124,7 +119,28 @@ public class MainActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
+        if (id == R.id.action_settings) {
+            return true;
+        } else if (id == R.id.nav_exit) {
+            finish();
+        } else if (id == R.id.nav_theory_crypt) {
+            Intent intent = new Intent(this, TheoryActivity.class);
+            intent.putExtra(Constant.KEY, Constant.algorithmSecondName);
+            startActivity(intent);
+        } else if (id == R.id.nav_theory_enc) {
+            Intent intent = new Intent(this, TheoryActivity.class);
+            intent.putExtra(Constant.KEY, Constant.algorithmFirstName);
+            startActivity(intent);
+        } else if (id == R.id.nav_crypt || id == R.id.nav_encrypt) {
+            String text;
+            int key;
+            text = VariablesGenerator.createRandomWord();
+            key = VariablesGenerator.createRandomKey();
 
+            VariablesHolder.word = text;
+            VariablesHolder.key = key;
+            startActivity(new Intent(this, ProgressActivity.class));
+        }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;

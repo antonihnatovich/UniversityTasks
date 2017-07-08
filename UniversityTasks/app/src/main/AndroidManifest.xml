@@ -19,7 +19,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.activities.ProgressActivity"></activity>
+        <activity android:name=".view.activities.ProgressActivity" />
+        <activity
+            android:name=".view.activities.TheoryActivity"
+            android:label="@string/title_activity_theory"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>

@@ -5,21 +5,21 @@
         <item android:title="Algorithms">
             <menu>
         <item
-            android:id="@+id/nav_camera"
+            android:id="@+id/nav_crypt"
             android:icon="@drawable/ic_algorithm"
-            android:title="Affine Code of Caesar. Decryption" />
+            android:title="Affine Code of Caesar. Crypt" />
         <item
-            android:id="@+id/nav_gallery"
+            android:id="@+id/nav_theory_crypt"
             android:icon="@drawable/ic_theory"
-            android:title="Theory of Affine Caesar" />
+            android:title="Theory of Affine Caesar. Crypt" />
         <item
-            android:id="@+id/nav_slideshow"
+            android:id="@+id/nav_encrypt"
             android:icon="@drawable/ic_algorithm"
-            android:title="Noname Crypt Method. Crypt" />
+            android:title="Affine Code of Caesar. Encrypt" />
         <item
-            android:id="@+id/nav_manage"
+            android:id="@+id/nav_theory_enc"
             android:icon="@drawable/ic_theory"
-            android:title="Theory of Noname Crypt Method" />
+            android:title="Theory of Affine Code of Caesar. Encrypt" />
             </menu>
         </item>
     </group>
@@ -27,7 +27,7 @@
     <item android:title="Application">
         <menu>
             <item
-                android:id="@+id/nav_send"
+                android:id="@+id/nav_exit"
                 android:icon="@drawable/ic_close"
                 android:title="Exit" />
         </menu>

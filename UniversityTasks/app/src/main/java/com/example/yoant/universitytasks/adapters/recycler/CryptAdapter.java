@@ -8,19 +8,19 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.yoant.universitytasks.R;
+import com.example.yoant.universitytasks.helper.Constant;
 import com.example.yoant.universitytasks.helper.Letter;
 import com.example.yoant.universitytasks.logic.Cryptographer;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 public class CryptAdapter extends android.support.v7.widget.RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private List<Letter> mListFresh;
 
-    public CryptAdapter(String word, int key) {
+    public CryptAdapter(String word, int key, String algorithm) {
         mListFresh = new ArrayList<>();
-        setupWord(word, key);
+        setupWord(word, key, algorithm);
     }
 
     @Override
@@ -31,12 +31,12 @@ public class CryptAdapter extends android.support.v7.widget.RecyclerView.Adapter
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        final CryptItemViewHolder viewHolder = (CryptItemViewHolder)holder;
-        final  Letter letter = mListFresh.get(position);
+        final CryptItemViewHolder viewHolder = (CryptItemViewHolder) holder;
+        final Letter letter = mListFresh.get(position);
         viewHolder.textViewSeparator.setText("<===>");
-        if(letter.isFlipped) {
+        if (letter.isFlipped) {
             viewHolder.textViewWord.setText(letter.letterFlipped);
-            viewHolder.textViewNumber.setText(letter.codeFlipepd + "");
+            viewHolder.textViewNumber.setText(letter.codeFlipped + "");
         } else {
             viewHolder.textViewWord.setText(letter.letterFresh);
             viewHolder.textViewNumber.setText(letter.codeFresh + "");
@@ -47,9 +47,9 @@ public class CryptAdapter extends android.support.v7.widget.RecyclerView.Adapter
             @Override
             public void onClick(View view) {
                 letter.isFlipped = !letter.isFlipped;
-                if(letter.isFlipped) {
+                if (letter.isFlipped) {
                     viewHolder.textViewWord.setText(letter.letterFlipped);
-                    viewHolder.textViewNumber.setText(letter.codeFlipepd + "");
+                    viewHolder.textViewNumber.setText(letter.codeFlipped + "");
                     viewHolder.itemView.setBackgroundColor(Color.GRAY);
                 } else {
                     viewHolder.textViewWord.setText(letter.letterFresh);
@@ -82,14 +82,18 @@ public class CryptAdapter extends android.support.v7.widget.RecyclerView.Adapter
         }
     }
 
-    private void setupWord(String word, int key) {
-        String mCryptedWord = Cryptographer.cryptCaesarDecrypt(word, key);
+    private void setupWord(String word, int key, String pAlgorithm) {
+        String mCryptedWord;
+        if (pAlgorithm.equals(Constant.algorithmFirstName))
+            mCryptedWord = Cryptographer.cryptCaesarDecrypt(word, key);
+        else
+            mCryptedWord = Cryptographer.cryptCaesarCrypt(word, key);
         char[] wordAsArray = word.toCharArray();
         char[] cryptedWordAsArray = mCryptedWord.toCharArray();
-        for(int i = 0; i < word.length(); i++) {
+        for (int i = 0; i < word.length(); i++) {
             mListFresh.add(
-                    new Letter(wordAsArray[i]+"", cryptedWordAsArray[i] + "",
-                            (int)(wordAsArray[i]), (int) (cryptedWordAsArray[i])));
+                    new Letter(wordAsArray[i] + "", cryptedWordAsArray[i] + "",
+                            (int) (wordAsArray[i]), (int) (cryptedWordAsArray[i])));
         }
     }
 }
